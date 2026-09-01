@@ -16,9 +16,9 @@ import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
-export default function Home() {
+export default function App() {
   return (
-    <main className="min-h-screen bg-[#030712] text-gray-100 relative">
+    <div className="min-h-screen bg-[#030712] text-gray-100 relative">
       <Navbar />
       <Hero />
       <PersonalBrand />
@@ -36,6 +36,6 @@ export default function Home() {
       <ContactForm />
       <Footer />
       <WhatsAppButton />
-    </main>
+    </div>
   );
 }

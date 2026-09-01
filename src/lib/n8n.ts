@@ -17,58 +17,57 @@ export interface SubmissionResponse {
 }
 
 /**
- * Submits lead data to the n8n automation webhook via local API route proxy.
+ * Submits lead data to the n8n automation webhook.
  * Works seamlessly whether environment variables are set or not.
  */
 export async function submitAutomationLead(
   payload: LeadPayload
 ): Promise<SubmissionResponse> {
+  const webhookUrl =
+    import.meta.env.VITE_N8N_WEBHOOK_URL ||
+    import.meta.env.N8N_WEBHOOK_URL;
+
   const fullPayload: LeadPayload = {
     ...payload,
     source: payload.source || "rudra-portfolio",
     timestamp: new Date().toISOString(),
   };
 
-  try {
-    const response = await fetch("/api/lead", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(fullPayload),
-    });
+  if (webhookUrl) {
+    try {
+      const response = await fetch(webhookUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(fullPayload),
+      });
 
-    if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}));
-      throw new Error(errorData.message || `Server error: ${response.status}`);
+      if (!response.ok) {
+        console.warn(`n8n webhook responded with status ${response.status}`);
+      }
+    } catch (err) {
+      console.warn("n8n webhook call note:", err);
     }
-
-    const result = await response.json();
-    return {
-      success: true,
-      message: result.message || "Lead submitted successfully to automation pipeline.",
-      data: result,
-    };
-  } catch (error) {
-    console.warn("n8n lead submission note:", error);
-    // Graceful fallback response so UX is smooth
-    return {
-      success: true,
-      message: "Form received! Rudra will review your inquiry shortly.",
-      data: fullPayload,
-    };
+  } else {
+    console.log("No VITE_N8N_WEBHOOK_URL configured. Payload:", fullPayload);
   }
+
+  // Graceful client confirmation
+  return {
+    success: true,
+    message: "Request received! Rudra will review your inquiry shortly.",
+    data: fullPayload,
+  };
 }
 
 /**
  * Simulates or executes an interactive automation demo run.
- * Can trigger an n8n webhook or run locally for instant feedback.
  */
 export async function runAutomationDemo(
   payload: Partial<LeadPayload>
 ): Promise<SubmissionResponse> {
-  // If webhook is provided, trigger it in the background
-  const webhookUrl = process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL;
+  const webhookUrl = import.meta.env.VITE_N8N_WEBHOOK_URL;
   if (webhookUrl) {
     submitAutomationLead({
       name: payload.name || "Demo Visitor",

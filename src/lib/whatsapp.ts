@@ -1,10 +1,10 @@
 /**
- * Generates a prefilled WhatsApp chat link using NEXT_PUBLIC_WHATSAPP_NUMBER env var.
+ * Generates a prefilled WhatsApp chat link using VITE_WHATSAPP_NUMBER env var.
  * @param customMessage Optional message override
  */
 export function getWhatsAppUrl(customMessage?: string): string {
-  // Default to Rudra's WhatsApp number env variable or fallback
-  const rawNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919876543210";
+  const rawNumber =
+    import.meta.env.VITE_WHATSAPP_NUMBER || "919876543210";
   const cleanNumber = rawNumber.replace(/[^0-9]/g, "");
 
   const defaultMsg =

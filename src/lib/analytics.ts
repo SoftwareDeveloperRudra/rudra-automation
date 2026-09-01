@@ -3,8 +3,8 @@
  */
 export function trackEvent(eventName: string, properties?: Record<string, unknown>) {
   if (typeof window !== "undefined") {
-    const analyticsId = process.env.NEXT_PUBLIC_ANALYTICS_ID;
-    if (process.env.NODE_ENV === "development") {
+    const analyticsId = import.meta.env.VITE_ANALYTICS_ID;
+    if (import.meta.env.DEV) {
       console.log(`[Analytics Track: ${eventName}]`, properties || {});
     }
 
