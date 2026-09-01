@@ -1,34 +1,24 @@
 export default function HeroBotAnimation() {
   return (
-    <div className="relative w-full max-w-lg mx-auto flex items-center justify-center">
-      {/* Soft radial cyan/emerald backlight glow directly behind video wrapper */}
+    <div className="relative w-full max-w-xl lg:max-w-2xl mx-auto flex items-center justify-center pointer-events-none">
+      {/* Soft radial cyan/emerald backlight glow directly behind robot */}
       <div
-        className="absolute -inset-4 rounded-full blur-[40px] pointer-events-none"
+        className="absolute -inset-10 rounded-full blur-[60px] pointer-events-none opacity-80"
         style={{
-          background: "radial-gradient(circle, rgba(0, 255, 163, 0.25) 0%, transparent 70%)",
+          background: "radial-gradient(circle at 60% 45%, rgba(0, 255, 163, 0.4) 0%, rgba(0, 230, 118, 0.15) 45%, transparent 70%)",
         }}
       />
 
-      {/* Stylized dark glassmorphism card container */}
-      <div
-        className="relative w-full rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 group"
-        style={{
-          background: "rgba(11, 17, 26, 0.6)",
-          backdropFilter: "blur(12px)",
-          WebkitBackdropFilter: "blur(12px)",
-          border: "1px solid rgba(0, 255, 170, 0.2)",
-          boxShadow: "0 0 25px rgba(0, 255, 163, 0.12)",
-        }}
-      >
-        <video
-          src="/bot-loop.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-auto object-cover rounded-2xl filter contrast-105 brightness-105"
-        />
-      </div>
+      {/* Video without any card container, borders, or boxes, seamlessly blended into site background */}
+      <video
+        src="/bot-loop.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="w-full h-auto object-contain mix-blend-multiply filter contrast-125 brightness-105 scale-110 lg:scale-125 relative z-10"
+        style={{ mixBlendMode: "multiply" }}
+      />
     </div>
   );
 }
