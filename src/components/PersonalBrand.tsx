@@ -1,4 +1,5 @@
 import { ChevronDown, Code2, Bot, User, Sparkles, MapPin, ArrowRight } from "lucide-react";
+import rudraImg from "@/rudra.png";
 
 export default function PersonalBrand() {
   return (
@@ -15,7 +16,7 @@ export default function PersonalBrand() {
                 {/* Photo Container */}
                 <div className="relative w-56 h-56 rounded-2xl overflow-hidden border-2 border-[#00E676] bg-[#0D131F] shadow-2xl group-hover:scale-105 transition-transform duration-500">
                   <img
-                    src="/rudra.jpg"
+                    src={rudraImg}
                     alt="Rudra Umra"
                     onError={(e) => {
                       e.currentTarget.style.display = "none";

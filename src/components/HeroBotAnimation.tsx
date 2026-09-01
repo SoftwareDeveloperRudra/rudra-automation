@@ -213,7 +213,7 @@ export default function HeroBotAnimation() {
               2. ROBOT BODY & TORSO
              ======================================================== */}
           <ellipse cx="260" cy="225" rx="46" ry="38" fill="url(#botMetallic)" stroke="#CBD5E1" strokeWidth="2" />
-          
+
           {/* Cyan Core Arc on Chest */}
           <circle cx="260" cy="225" r="13" fill="#090D16" stroke="#00FFA3" strokeWidth="2.5" />
           <circle cx="260" cy="225" r="7" fill="#00FFA3" filter="url(#neonFilter)" />
