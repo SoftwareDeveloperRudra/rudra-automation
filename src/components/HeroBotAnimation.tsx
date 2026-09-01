@@ -1,35 +1,45 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2, Sparkles, Send } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
 export default function HeroBotAnimation() {
-  const [step, setStep] = useState<"idle" | "touching" | "flying" | "sent">("idle");
+  const [phase, setPhase] = useState<"typing" | "sending" | "gliding">("typing");
+  const [typingTick, setTypingTick] = useState(0);
 
   useEffect(() => {
-    // Continuous 4.5s looping sequence
-    const cycle = () => {
-      // Step 1: Robot touches circuit button
-      setStep("touching");
+    // Fast typing rhythmic tick for fingers and keyboard key pulses
+    const typingInterval = setInterval(() => {
+      setTypingTick((prev) => (prev + 1) % 8);
+    }, 150);
 
-      // Step 2: Paper plane takes off and zips away
-      setTimeout(() => {
-        setStep("flying");
-      }, 700);
+    // Main animation loop orchestration matching the exact video sequence
+    const loopCycle = () => {
+      // 1. Typing on the circuit desk for 2.8 seconds
+      setPhase("typing");
 
-      // Step 3: Message Sent checkmark popup
+      // 2. Extends finger to click Send
       setTimeout(() => {
-        setStep("sent");
-      }, 1600);
+        setPhase("sending");
+      }, 2600);
 
-      // Step 4: Reset smoothly
+      // 3. Paper plane takes off and glides smoothly across the screen
       setTimeout(() => {
-        setStep("idle");
-      }, 3800);
+        setPhase("gliding");
+      }, 3400);
+
+      // 4. Smooth reset back to typing
+      setTimeout(() => {
+        setPhase("typing");
+      }, 5400);
     };
 
-    cycle();
-    const interval = setInterval(cycle, 4600);
-    return () => clearInterval(interval);
+    loopCycle();
+    const cycleInterval = setInterval(loopCycle, 5600);
+
+    return () => {
+      clearInterval(typingInterval);
+      clearInterval(cycleInterval);
+    };
   }, []);
 
   return (
@@ -42,84 +52,78 @@ export default function HeroBotAnimation() {
         }}
       />
 
-      {/* Floating "Message Sent" Pop-up Badge */}
+      {/* Graceful Flying Origami Paper Airplane with Smooth Gliding Curve */}
       <AnimatePresence>
-        {(step === "sent" || step === "flying") && (
+        {phase === "gliding" && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.5, y: 15, x: -10 }}
-            animate={{ opacity: 1, scale: 1, y: 0, x: 0 }}
-            exit={{ opacity: 0, scale: 0.8, y: -10 }}
-            transition={{ type: "spring", stiffness: 450, damping: 22 }}
-            className="absolute top-4 left-6 md:left-12 z-30 px-4 py-1.5 rounded-full bg-[#0D131F]/90 border border-[#00FFA3]/50 backdrop-blur-xl flex items-center gap-2 text-xs font-extrabold text-[#00FFA3] shadow-2xl shadow-[#00FFA3]/30"
-          >
-            <CheckCircle2 className="w-4 h-4 text-[#00FFA3]" />
-            <span>Message Sent</span>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Flying Origami Paper Airplane with Glowing Trail */}
-      <AnimatePresence>
-        {step === "flying" && (
-          <motion.div
-            initial={{ x: -30, y: 60, scale: 0.7, opacity: 0, rotate: 15 }}
+            initial={{ x: -20, y: 70, scale: 0.75, opacity: 0, rotate: 12 }}
             animate={{
-              x: 180,
-              y: -110,
-              scale: 1.25,
-              opacity: [0, 1, 1, 0],
-              rotate: -12,
+              x: [ -20, 40, 120, 220 ],
+              y: [ 70, 20, -35, -120 ],
+              scale: [ 0.75, 1.05, 1.15, 1.25 ],
+              opacity: [ 0, 1, 1, 0 ],
+              rotate: [ 12, 5, -8, -18 ],
             }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+            transition={{
+              duration: 1.8,
+              ease: [0.25, 1, 0.5, 1],
+              times: [0, 0.2, 0.65, 1],
+            }}
             className="absolute z-40 left-1/3 top-28 pointer-events-none"
           >
-            {/* Glowing Paper Airplane SVG */}
             <div className="relative">
-              <svg width="68" height="54" viewBox="0 0 68 54" fill="none" className="drop-shadow-[0_0_16px_rgba(0,255,200,0.85)]">
+              {/* Glowing 3D Vector Paper Airplane */}
+              <svg
+                width="72"
+                height="56"
+                viewBox="0 0 68 54"
+                fill="none"
+                className="drop-shadow-[0_0_20px_rgba(0,255,200,0.9)]"
+              >
                 <path
                   d="M66 2L2 28L26 36L66 2Z"
-                  fill="url(#planeGrad1)"
+                  fill="url(#smoothPlane1)"
                   stroke="#00FFA3"
                   strokeWidth="1.5"
                 />
                 <path
                   d="M66 2L26 36V52L38 42L66 2Z"
-                  fill="url(#planeGrad2)"
+                  fill="url(#smoothPlane2)"
                   stroke="#06B6D4"
                   strokeWidth="1.5"
                 />
                 <path
                   d="M66 2L38 42L26 36L66 2Z"
-                  fill="#E2E8F0"
-                  opacity="0.9"
+                  fill="#F1F5F9"
+                  opacity="0.95"
                 />
                 <defs>
-                  <linearGradient id="planeGrad1" x1="2" y1="2" x2="66" y2="36" gradientUnits="userSpaceOnUse">
+                  <linearGradient id="smoothPlane1" x1="2" y1="2" x2="66" y2="36" gradientUnits="userSpaceOnUse">
                     <stop stopColor="#FFFFFF" />
-                    <stop offset="0.7" stopColor="#E2E8F0" />
+                    <stop offset="0.6" stopColor="#E2E8F0" />
                     <stop offset="1" stopColor="#00FFA3" />
                   </linearGradient>
-                  <linearGradient id="planeGrad2" x1="26" y1="2" x2="66" y2="52" gradientUnits="userSpaceOnUse">
+                  <linearGradient id="smoothPlane2" x1="26" y1="2" x2="66" y2="52" gradientUnits="userSpaceOnUse">
                     <stop stopColor="#06B6D4" />
                     <stop offset="1" stopColor="#00E676" />
                   </linearGradient>
                 </defs>
               </svg>
 
-              {/* Dotted Trajectory Trail behind plane */}
+              {/* Glowing Curved Flight Trail */}
               <motion.div
-                initial={{ width: 0, opacity: 0.8 }}
-                animate={{ width: 140, opacity: 0 }}
-                transition={{ duration: 0.8 }}
-                className="absolute top-6 -left-28 h-0.5 border-b-2 border-dashed border-[#00FFA3]/60 blur-[0.5px]"
+                initial={{ width: 0, opacity: 0.9 }}
+                animate={{ width: 160, opacity: 0 }}
+                transition={{ duration: 1.4, ease: "easeOut" }}
+                className="absolute top-7 -left-32 h-0.5 border-b-2 border-dashed border-[#00FFA3]/70 blur-[0.5px]"
               />
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Main Native SVG & Code Scene: 3D Robot & Circuit Desk */}
+      {/* Main Native SVG 3D AI Robot & Glass Circuit Desk Scene */}
       <div className="relative w-full aspect-[4/3] flex items-center justify-center">
         <svg
           viewBox="0 0 500 400"
@@ -129,46 +133,40 @@ export default function HeroBotAnimation() {
         >
           <defs>
             {/* Robot Glossy White Shading */}
-            <linearGradient id="robotBodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <linearGradient id="botGrad" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#FFFFFF" />
               <stop offset="60%" stopColor="#E2E8F0" />
               <stop offset="100%" stopColor="#94A3B8" />
             </linearGradient>
 
-            {/* Robot Head Dome */}
-            <radialGradient id="headDomeGrad" cx="35%" cy="30%" r="70%">
+            {/* Robot Head Dome Radial Shading */}
+            <radialGradient id="domeGrad" cx="35%" cy="30%" r="70%">
               <stop offset="0%" stopColor="#FFFFFF" />
               <stop offset="65%" stopColor="#CBD5E1" />
               <stop offset="100%" stopColor="#64748B" />
             </radialGradient>
 
             {/* Dark Visor Face Screen */}
-            <linearGradient id="visorGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <linearGradient id="visorScreen" x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stopColor="#0A111C" />
               <stop offset="100%" stopColor="#0F172A" />
             </linearGradient>
 
-            {/* Cyan Neon Accent Glow */}
-            <linearGradient id="cyanNeon" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#00FFA3" />
-              <stop offset="100%" stopColor="#06B6D4" />
-            </linearGradient>
-
             {/* Desk Glass Surface Gradient */}
-            <linearGradient id="deskGlass" x1="0%" y1="0%" x2="100%" y2="100%">
+            <linearGradient id="deskGlassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#0F172A" stopOpacity="0.85" />
               <stop offset="100%" stopColor="#090D16" stopOpacity="0.95" />
             </linearGradient>
 
             {/* Soft Glow Filter */}
-            <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+            <filter id="cyanGlow" x="-20%" y="-20%" width="140%" height="140%">
               <feGaussianBlur stdDeviation="4" result="blur" />
               <feComposite in="SourceGraphic" in2="blur" operator="over" />
             </filter>
           </defs>
 
           {/* ========================================================
-              1. BACKGROUND SEAT / CHAIR BACKREST
+              1. SEAT / CHAIR BACKREST
              ======================================================== */}
           <rect
             x="295"
@@ -185,12 +183,11 @@ export default function HeroBotAnimation() {
           {/* ========================================================
               2. ROBOT BODY & TORSO
              ======================================================== */}
-          {/* Shoulders & Chest */}
-          <ellipse cx="260" cy="225" rx="46" ry="38" fill="url(#robotBodyGrad)" stroke="#CBD5E1" strokeWidth="2" />
+          <ellipse cx="260" cy="225" rx="46" ry="38" fill="url(#botGrad)" stroke="#CBD5E1" strokeWidth="2" />
           
           {/* Cyan Core Arc on Chest */}
           <circle cx="260" cy="225" r="13" fill="#090D16" stroke="#00FFA3" strokeWidth="2.5" />
-          <circle cx="260" cy="225" r="7" fill="#00FFA3" filter="url(#neonGlow)" />
+          <circle cx="260" cy="225" r="7" fill="#00FFA3" filter="url(#cyanGlow)" />
 
           {/* Neck */}
           <rect x="250" y="172" width="20" height="18" rx="5" fill="#64748B" />
@@ -199,42 +196,36 @@ export default function HeroBotAnimation() {
               3. ROBOT HEAD & FACE
              ======================================================== */}
           <g>
-            {/* Outer Head Shell */}
-            <ellipse cx="260" cy="120" rx="64" ry="54" fill="url(#headDomeGrad)" stroke="#E2E8F0" strokeWidth="3" />
+            {/* Outer Head Dome Shell */}
+            <ellipse cx="260" cy="120" rx="64" ry="54" fill="url(#domeGrad)" stroke="#E2E8F0" strokeWidth="3" />
 
-            {/* Ear Cylinders / Antennas */}
-            {/* Left Ear */}
+            {/* Left Ear Antenna */}
             <rect x="190" y="100" width="12" height="38" rx="6" fill="#06B6D4" stroke="#00FFA3" strokeWidth="2" />
-            {/* Right Ear */}
-            <rect x="318" y="100" width="12" height="38" rx="6" fill="#06B6D4" stroke="#00FFA3" strokeWidth="2" />
-            {/* Antenna Top Tip */}
             <line x1="205" y1="85" x2="195" y2="60" stroke="#06B6D4" strokeWidth="4" strokeLinecap="round" />
-            <circle cx="194" cy="58" r="5" fill="#00FFA3" filter="url(#neonGlow)" />
+            <circle cx="194" cy="58" r="5" fill="#00FFA3" filter="url(#cyanGlow)" />
 
+            {/* Right Ear Antenna */}
+            <rect x="318" y="100" width="12" height="38" rx="6" fill="#06B6D4" stroke="#00FFA3" strokeWidth="2" />
             <line x1="315" y1="85" x2="325" y2="60" stroke="#06B6D4" strokeWidth="4" strokeLinecap="round" />
-            <circle cx="326" cy="58" r="5" fill="#00FFA3" filter="url(#neonGlow)" />
+            <circle cx="326" cy="58" r="5" fill="#00FFA3" filter="url(#cyanGlow)" />
 
             {/* Dark Visor Face Screen */}
-            <rect x="208" y="85" width="104" height="68" rx="28" fill="url(#visorGrad)" stroke="#1E293B" strokeWidth="2.5" />
+            <rect x="208" y="85" width="104" height="68" rx="28" fill="url(#visorScreen)" stroke="#1E293B" strokeWidth="2.5" />
 
-            {/* Cyan Glowing Expressive Eyes (Animated Blink & Smile) */}
-            <g filter="url(#neonGlow)">
-              {/* Left Eye */}
-              {step === "touching" || step === "sent" ? (
-                // Happy Arc Eye
-                <path d="M 230 115 Q 240 102 250 115" fill="none" stroke="#00FFA3" strokeWidth="4.5" strokeLinecap="round" />
+            {/* Cyan Glowing Expressive Eyes & Smile */}
+            <g filter="url(#cyanGlow)">
+              {phase === "sending" || phase === "gliding" ? (
+                <>
+                  {/* Happy Curved Eyes */}
+                  <path d="M 230 115 Q 240 102 250 115" fill="none" stroke="#00FFA3" strokeWidth="4.5" strokeLinecap="round" />
+                  <path d="M 270 115 Q 280 102 290 115" fill="none" stroke="#00FFA3" strokeWidth="4.5" strokeLinecap="round" />
+                </>
               ) : (
-                // Bright Oval Eye
-                <ellipse cx="240" cy="116" rx="8" ry="11" fill="#00FFA3" />
-              )}
-
-              {/* Right Eye */}
-              {step === "touching" || step === "sent" ? (
-                // Happy Arc Eye
-                <path d="M 270 115 Q 280 102 290 115" fill="none" stroke="#00FFA3" strokeWidth="4.5" strokeLinecap="round" />
-              ) : (
-                // Bright Oval Eye
-                <ellipse cx="280" cy="116" rx="8" ry="11" fill="#00FFA3" />
+                <>
+                  {/* Focused Bright Oval Eyes */}
+                  <ellipse cx="240" cy="116" rx="8" ry="11" fill="#00FFA3" />
+                  <ellipse cx="280" cy="116" rx="8" ry="11" fill="#00FFA3" />
+                </>
               )}
 
               {/* Cute Cyan Smile */}
@@ -243,29 +234,53 @@ export default function HeroBotAnimation() {
           </g>
 
           {/* ========================================================
-              4. ROBOT ARMS & HANDS TOUCHING DESK
+              4. ROBOT ARMS & TYPING / SENDING FINGER MOVEMENTS
              ======================================================== */}
-          {/* Left Arm */}
-          <path
-            d="M 220 220 Q 185 240 205 278"
-            fill="none"
-            stroke="url(#robotBodyGrad)"
-            strokeWidth="18"
-            strokeLinecap="round"
-          />
-          {/* Left Hand Fingers on Circuit Board */}
-          <ellipse cx="208" cy="285" rx="14" ry="9" fill="#CBD5E1" stroke="#94A3B8" strokeWidth="1.5" />
+          {/* Left Arm & Typing Hand */}
+          <g>
+            <path
+              d={`M 220 220 Q 185 240 205 ${phase === "typing" ? 276 + (typingTick % 2 === 0 ? -4 : 4) : 278}`}
+              fill="none"
+              stroke="url(#botGrad)"
+              strokeWidth="18"
+              strokeLinecap="round"
+            />
+            {/* Left Hand Fingers Typing */}
+            <ellipse
+              cx="208"
+              cy={phase === "typing" ? 283 + (typingTick % 2 === 0 ? -4 : 4) : 285}
+              rx="14"
+              ry="9"
+              fill="#CBD5E1"
+              stroke="#94A3B8"
+              strokeWidth="1.5"
+            />
+          </g>
 
-          {/* Right Arm (Extends down to press the glowing Send button) */}
-          <path
-            d="M 300 220 Q 325 245 285 285"
-            fill="none"
-            stroke="url(#robotBodyGrad)"
-            strokeWidth="18"
-            strokeLinecap="round"
-          />
-          {/* Right Hand / Finger pressing Button */}
-          <ellipse cx="282" cy="288" rx="14" ry="9" fill="#CBD5E1" stroke="#94A3B8" strokeWidth="1.5" />
+          {/* Right Arm & Typing/Sending Hand */}
+          <g>
+            <path
+              d={
+                phase === "sending"
+                  ? "M 300 220 Q 325 245 285 285" // Reaching forward to press Send button
+                  : `M 300 220 Q 325 245 270 ${phase === "typing" ? 276 + (typingTick % 2 !== 0 ? -4 : 4) : 280}` // Typing on keyboard
+              }
+              fill="none"
+              stroke="url(#botGrad)"
+              strokeWidth="18"
+              strokeLinecap="round"
+            />
+            {/* Right Hand / Finger */}
+            <ellipse
+              cx={phase === "sending" ? 282 : 272}
+              cy={phase === "sending" ? 288 : (phase === "typing" ? 283 + (typingTick % 2 !== 0 ? -4 : 4) : 285)}
+              rx="14"
+              ry="9"
+              fill="#CBD5E1"
+              stroke="#94A3B8"
+              strokeWidth="1.5"
+            />
+          </g>
 
           {/* ========================================================
               5. FUTURISTIC GLASS CIRCUIT DESK
@@ -273,13 +288,13 @@ export default function HeroBotAnimation() {
           {/* Desk Main Top Slab (Perspective Projection) */}
           <polygon
             points="60,260 420,260 460,340 20,340"
-            fill="url(#deskGlass)"
+            fill="url(#deskGlassGrad)"
             stroke="#00FFA3"
             strokeWidth="2.5"
             strokeOpacity="0.6"
           />
 
-          {/* Desk Glass Front Edge Lip */}
+          {/* Desk Front Edge Lip */}
           <polygon
             points="20,340 460,340 460,360 20,360"
             fill="#0B131F"
@@ -293,58 +308,58 @@ export default function HeroBotAnimation() {
           <path d="M 400 360 L 400 395 L 430 395 L 430 360" fill="#1E293B" />
 
           {/* ========================================================
-              6. GLOWING NEON CIRCUIT TRACES ON DESK
+              6. HOLOGRAPHIC TYPING KEYBOARD & CIRCUIT TRACES
              ======================================================== */}
-          <g stroke="#00FFA3" strokeWidth="2" strokeOpacity="0.85" filter="url(#neonGlow)">
-            {/* Center Microchip Core */}
-            <rect x="225" y="275" width="50" height="42" rx="6" fill="#0A111C" stroke="#00FFA3" strokeWidth="2.5" />
-            
-            {/* Chip Inner Pulse */}
-            <circle
-              cx="250"
-              cy="296"
-              r={step === "touching" ? 14 : 9}
-              fill="#00FFA3"
-              fillOpacity={step === "touching" ? 0.9 : 0.4}
-              className="transition-all duration-300"
-            />
+          {/* Glowing Virtual Holographic Keyboard Keys under robot's hands */}
+          <g filter="url(#cyanGlow)">
+            {/* Keyboard Row 1 */}
+            <rect x="180" y="278" width="12" height="7" rx="2" fill={typingTick === 0 ? "#00FFA3" : "#0A111C"} stroke="#00FFA3" strokeWidth="1" />
+            <rect x="196" y="278" width="12" height="7" rx="2" fill={typingTick === 1 ? "#00FFA3" : "#0A111C"} stroke="#00FFA3" strokeWidth="1" />
+            <rect x="212" y="278" width="12" height="7" rx="2" fill={typingTick === 2 ? "#00FFA3" : "#0A111C"} stroke="#00FFA3" strokeWidth="1" />
+            <rect x="228" y="278" width="12" height="7" rx="2" fill={typingTick === 3 ? "#00FFA3" : "#0A111C"} stroke="#00FFA3" strokeWidth="1" />
 
-            {/* Circuit Traces Radiating across desk */}
-            <path d="M 225 285 H 170 L 145 305 H 90" fill="none" strokeDasharray="4 2" />
-            <path d="M 225 305 H 180 L 155 325 H 70" fill="none" />
-            <path d="M 250 317 V 335 L 230 340" fill="none" />
-            
-            <path d="M 275 285 H 330 L 355 305 H 400" fill="none" strokeDasharray="4 2" />
-            <path d="M 275 305 H 320 L 345 325 H 420" fill="none" />
-            <path d="M 250 275 V 265" fill="none" />
+            {/* Keyboard Row 2 */}
+            <rect x="176" y="288" width="12" height="7" rx="2" fill={typingTick === 4 ? "#00FFA3" : "#0A111C"} stroke="#00FFA3" strokeWidth="1" />
+            <rect x="192" y="288" width="12" height="7" rx="2" fill={typingTick === 5 ? "#00FFA3" : "#0A111C"} stroke="#00FFA3" strokeWidth="1" />
+            <rect x="208" y="288" width="12" height="7" rx="2" fill={typingTick === 6 ? "#00FFA3" : "#0A111C"} stroke="#00FFA3" strokeWidth="1" />
+            <rect x="224" y="288" width="12" height="7" rx="2" fill={typingTick === 7 ? "#00FFA3" : "#0A111C"} stroke="#00FFA3" strokeWidth="1" />
+
+            {/* Circuit Traces Radiating across glass desk */}
+            <g stroke="#00FFA3" strokeWidth="2" strokeOpacity="0.85">
+              <path d="M 170 285 H 135 L 115 305 H 80" fill="none" strokeDasharray="4 2" />
+              <path d="M 170 305 H 140 L 120 325 H 65" fill="none" />
+              <path d="M 285 285 H 330 L 355 305 H 400" fill="none" strokeDasharray="4 2" />
+              <path d="M 285 305 H 320 L 345 325 H 420" fill="none" />
+              <path d="M 250 317 V 335 L 230 340" fill="none" />
+            </g>
 
             {/* Circuit Nodes */}
-            <circle cx="90" cy="305" r="3.5" fill="#00FFA3" />
-            <circle cx="70" cy="325" r="3.5" fill="#06B6D4" />
+            <circle cx="80" cy="305" r="3.5" fill="#00FFA3" />
+            <circle cx="65" cy="325" r="3.5" fill="#06B6D4" />
             <circle cx="400" cy="305" r="3.5" fill="#00FFA3" />
             <circle cx="420" cy="325" r="3.5" fill="#06B6D4" />
           </g>
 
-          {/* Glowing "Send" Touchpad under Robot's Hands */}
-          <g filter="url(#neonGlow)">
+          {/* Glowing Holographic "SEND" Button */}
+          <g filter="url(#cyanGlow)">
             <rect
-              x="232"
-              y="282"
+              x="250"
+              y="280"
               width="36"
-              height="28"
+              height="24"
               rx="4"
-              fill={step === "touching" ? "#00FFA3" : "#090D16"}
+              fill={phase === "sending" ? "#00FFA3" : "#090D16"}
               stroke="#00FFA3"
               strokeWidth="1.5"
             />
             <text
-              x="250"
-              y="300"
-              fontSize="9"
+              x="268"
+              y="295"
+              fontSize="8.5"
               fontFamily="monospace"
               fontWeight="bold"
               textAnchor="middle"
-              fill={step === "touching" ? "#000000" : "#00FFA3"}
+              fill={phase === "sending" ? "#000000" : "#00FFA3"}
             >
               SEND
             </text>
