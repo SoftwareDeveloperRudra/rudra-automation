@@ -1,5 +1,5 @@
 import { ChevronDown, Code2, Bot, User, Sparkles, MapPin, ArrowRight } from "lucide-react";
-import rudraImg from "@/rudra.png";
+import rudraImg from "@/assets/rudra.png";
 
 export default function PersonalBrand() {
   return (
