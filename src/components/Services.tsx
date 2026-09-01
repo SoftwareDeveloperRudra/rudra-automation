@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { Bot, Globe, CalendarCheck, Cpu, ArrowUpRight, Check } from "lucide-react";
 
@@ -17,10 +15,9 @@ const services = [
       "Data processing & CRM sync",
       "Owner instant alert notifications",
     ],
-    color: "cyan",
-    border: "group-hover:border-cyan-500/50",
-    badge: "border-cyan-500/30 bg-cyan-500/10 text-cyan-400",
-    glow: "group-hover:shadow-cyan-500/10",
+    border: "group-hover:border-[#00FF66]/50",
+    badge: "border-[#00FF66]/30 bg-[#00FF66]/10 text-[#00FF66]",
+    glow: "group-hover:shadow-[#00FF66]/10",
   },
   {
     id: "business-websites",
@@ -29,16 +26,15 @@ const services = [
     subtitle: "High-Conversion Web Apps",
     description: "High-performance websites designed to convert visitors into active leads and paying customers.",
     examples: [
-      "Custom Next.js & React web platforms",
+      "Custom React web platforms",
       "Lightning-fast responsive landing pages",
       "High-converting UX architecture",
       "Search Engine Optimization (SEO)",
       "Vercel serverless deployment",
     ],
-    color: "blue",
-    border: "group-hover:border-blue-500/50",
-    badge: "border-blue-500/30 bg-blue-500/10 text-blue-400",
-    glow: "group-hover:shadow-blue-500/10",
+    border: "group-hover:border-[#FF0055]/50",
+    badge: "border-[#FF0055]/30 bg-[#FF0055]/10 text-[#FF0055]",
+    glow: "group-hover:shadow-[#FF0055]/10",
   },
   {
     id: "booking-systems",
@@ -53,10 +49,9 @@ const services = [
       "Staff availability management",
       "Instant booking confirmations",
     ],
-    color: "amber",
-    border: "group-hover:border-amber-500/50",
-    badge: "border-amber-500/30 bg-amber-500/10 text-amber-400",
-    glow: "group-hover:shadow-amber-500/10",
+    border: "group-hover:border-[#00FF66]/50",
+    badge: "border-[#00FF66]/30 bg-[#00FF66]/10 text-[#00FF66]",
+    glow: "group-hover:shadow-[#00FF66]/10",
   },
   {
     id: "ai-agents",
@@ -71,21 +66,20 @@ const services = [
       "Knowledge-base document query bots",
       "Automated web scraping & summaries",
     ],
-    color: "purple",
-    border: "group-hover:border-purple-500/50",
-    badge: "border-purple-500/30 bg-purple-500/10 text-purple-400",
-    glow: "group-hover:shadow-purple-500/10",
+    border: "group-hover:border-[#FF0055]/50",
+    badge: "border-[#FF0055]/30 bg-[#FF0055]/10 text-[#FF0055]",
+    glow: "group-hover:shadow-[#FF0055]/10",
   },
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 relative bg-grid-pattern">
+    <section id="services" className="py-24 relative bg-[#04060A]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono uppercase tracking-widest mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FF0055]/10 border border-[#FF0055]/30 text-[#FF0055] text-xs font-mono uppercase font-bold tracking-widest mb-3">
               <Bot className="w-3.5 h-3.5" />
               <span>Core Expertise</span>
             </div>
@@ -109,14 +103,14 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`group relative p-8 rounded-3xl bg-[#0B0F19]/80 border border-white/10 ${service.border} transition-all duration-300 hover:-translate-y-1 shadow-2xl ${service.glow}`}
+                className={`group relative p-8 rounded-3xl bg-[#090D16] border border-white/10 ${service.border} transition-all duration-300 hover:-translate-y-1 shadow-2xl ${service.glow}`}
               >
                 {/* Header Info */}
                 <div className="flex items-center justify-between mb-6">
                   <div className="w-12 h-12 rounded-2xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-white group-hover:scale-110 transition-transform">
-                    <Icon className="w-6 h-6" />
+                    <Icon className="w-6 h-6 text-[#00FF66]" />
                   </div>
-                  <span className={`text-xs font-mono font-semibold px-3 py-1 rounded-full border ${service.badge}`}>
+                  <span className={`text-xs font-mono font-bold px-3 py-1 rounded-full border ${service.badge}`}>
                     {service.subtitle}
                   </span>
                 </div>
@@ -131,12 +125,12 @@ export default function Services() {
 
                 {/* Real World Examples List */}
                 <div className="space-y-2 mb-8 pt-4 border-t border-white/5">
-                  <span className="text-xs uppercase tracking-wider text-gray-500 font-semibold block mb-3">
+                  <span className="text-xs uppercase tracking-wider text-gray-400 font-mono font-bold block mb-3">
                     Key Capabilities & Examples:
                   </span>
                   {service.examples.map((ex, i) => (
                     <div key={i} className="flex items-start gap-2 text-xs text-gray-300">
-                      <Check className="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5" />
+                      <Check className="w-3.5 h-3.5 text-[#00FF66] shrink-0 mt-0.5" />
                       <span>{ex}</span>
                     </div>
                   ))}
@@ -145,7 +139,7 @@ export default function Services() {
                 {/* Card CTA Link */}
                 <a
                   href="#contact"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-white group-hover:text-cyan-400 transition-colors"
+                  className="inline-flex items-center gap-2 text-sm font-bold text-white group-hover:text-[#00FF66] transition-colors"
                 >
                   <span>Build This System</span>
                   <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

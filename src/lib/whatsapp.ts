@@ -4,7 +4,7 @@
  */
 export function getWhatsAppUrl(customMessage?: string): string {
   const rawNumber =
-    import.meta.env.VITE_WHATSAPP_NUMBER || "919876543210";
+    import.meta.env.VITE_WHATSAPP_NUMBER || "918511092863";
   const cleanNumber = rawNumber.replace(/[^0-9]/g, "");
 
   const defaultMsg =

@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Zap, ArrowRight, CheckCircle2, ChevronRight } from "lucide-react";
@@ -17,8 +15,8 @@ const automationWorkflows = [
       "Auto Follow-up",
       "Owner Alert",
     ],
-    color: "from-cyan-500/20 to-blue-500/20",
-    accent: "text-cyan-400",
+    color: "from-[#FF0055]/20 to-[#00FF66]/20",
+    accent: "text-[#00FF66]",
   },
   {
     id: "booking-automation",
@@ -32,8 +30,8 @@ const automationWorkflows = [
       "WhatsApp Confirmation",
       "SMS Reminder",
     ],
-    color: "from-amber-500/20 to-orange-500/20",
-    accent: "text-amber-400",
+    color: "from-[#00FF66]/20 to-[#FF0055]/20",
+    accent: "text-[#FF0055]",
   },
   {
     id: "inquiry-automation",
@@ -47,8 +45,8 @@ const automationWorkflows = [
       "Lead Saved",
       "Owner Notified",
     ],
-    color: "from-purple-500/20 to-pink-500/20",
-    accent: "text-purple-400",
+    color: "from-[#FF0055]/20 to-[#FF2A6D]/20",
+    accent: "text-[#FF0055]",
   },
   {
     id: "follow-up-automation",
@@ -62,8 +60,8 @@ const automationWorkflows = [
       "Final Follow-up",
       "Deal Closed",
     ],
-    color: "from-emerald-500/20 to-teal-500/20",
-    accent: "text-emerald-400",
+    color: "from-[#00FF66]/20 to-[#39FF14]/20",
+    accent: "text-[#00FF66]",
   },
 ];
 
@@ -71,18 +69,18 @@ export default function AutomationServices() {
   const [activeWorkflow, setActiveWorkflow] = useState(0);
 
   return (
-    <section id="automation" className="py-24 bg-[#0B0F19]/90 border-y border-white/10 relative overflow-hidden">
+    <section id="automation" className="py-24 bg-[#090D16] border-y border-[#FF0055]/20 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-3xl space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-mono uppercase tracking-widest">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#00FF66]/10 border border-[#00FF66]/30 text-[#00FF66] text-xs font-mono font-bold uppercase tracking-widest">
             <Zap className="w-3.5 h-3.5" />
             <span>Eliminate Manual Labor</span>
           </div>
 
           <h2 className="text-3xl sm:text-5xl font-black font-heading text-white tracking-tight">
             Your Business Has Repetitive Work. <br />
-            <span className="text-gradient-amber">Let's Automate It.</span>
+            <span className="text-gradient-red">Let's Automate It.</span>
           </h2>
 
           <p className="text-gray-300 text-lg">
@@ -98,14 +96,14 @@ export default function AutomationServices() {
               onClick={() => setActiveWorkflow(idx)}
               className={`p-4 rounded-2xl border text-left transition-all duration-300 ${
                 activeWorkflow === idx
-                  ? "bg-white/10 border-cyan-400/50 shadow-lg shadow-cyan-500/10"
+                  ? "bg-white/10 border-[#00FF66] shadow-lg shadow-[#00FF66]/20"
                   : "bg-white/[0.02] border-white/10 hover:border-white/20 text-gray-400"
               }`}
             >
-              <div className={`text-xs font-mono font-bold mb-1 ${activeWorkflow === idx ? "text-cyan-400" : "text-gray-500"}`}>
+              <div className={`text-xs font-mono font-bold mb-1 ${activeWorkflow === idx ? "text-[#00FF66]" : "text-gray-500"}`}>
                 WORKFLOW 0{idx + 1}
               </div>
-              <div className="text-sm font-semibold text-white truncate">
+              <div className="text-sm font-bold text-white truncate">
                 {wf.title.replace(/^[0-9]+\.\s*/, "")}
               </div>
             </button>
@@ -131,7 +129,7 @@ export default function AutomationServices() {
             </div>
             <a
               href="#audit"
-              className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-cyan-400 hover:text-cyan-300 bg-cyan-500/10 px-4 py-2 rounded-full border border-cyan-500/20"
+              className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#00FF66] hover:text-white bg-[#00FF66]/10 px-4 py-2 rounded-full border border-[#00FF66]/30"
             >
               <span>Build This For My Business</span>
               <ChevronRight className="w-3.5 h-3.5" />
@@ -142,16 +140,16 @@ export default function AutomationServices() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-3 relative">
             {automationWorkflows[activeWorkflow].nodes.map((node, i) => (
               <div key={i} className="relative flex flex-col items-center">
-                <div className="w-full p-4 rounded-xl bg-black/60 border border-white/15 backdrop-blur-md text-center hover:border-cyan-400/50 transition-colors">
-                  <span className="text-[10px] font-mono text-gray-500 block mb-1">
+                <div className="w-full p-4 rounded-xl bg-[#04060A]/80 border border-white/15 backdrop-blur-md text-center hover:border-[#00FF66]/50 transition-colors">
+                  <span className="text-[10px] font-mono text-gray-400 font-bold block mb-1">
                     STEP 0{i + 1}
                   </span>
-                  <span className="text-xs font-semibold text-white block">
+                  <span className="text-xs font-bold text-white block">
                     {node}
                   </span>
                 </div>
                 {i < automationWorkflows[activeWorkflow].nodes.length - 1 && (
-                  <div className="hidden md:flex absolute -right-3 top-1/2 -translate-y-1/2 z-10 text-cyan-400">
+                  <div className="hidden md:flex absolute -right-3 top-1/2 -translate-y-1/2 z-10 text-[#00FF66]">
                     <ArrowRight className="w-4 h-4" />
                   </div>
                 )}
@@ -161,7 +159,7 @@ export default function AutomationServices() {
 
           {/* Outcome Summary */}
           <div className="mt-8 pt-6 border-t border-white/10 flex items-center gap-3 text-xs text-gray-300">
-            <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+            <CheckCircle2 className="w-4 h-4 text-[#00FF66] shrink-0" />
             <span>
               <strong>Result:</strong> Zero manual intervention required. 100% data integrity and instant customer gratification.
             </span>

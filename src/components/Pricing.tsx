@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { Check, ArrowRight, Sparkles, HelpCircle } from "lucide-react";
 
@@ -10,8 +8,8 @@ const pricingTiers = [
     period: "Starting From",
     subtitle: "High-performance web landing pages & web apps.",
     features: [
-      "Custom Next.js & React architecture",
-      "Mobile responsive dark luxury design",
+      "Custom React architecture",
+      "Mobile responsive Cyber Neon design",
       "SEO setup & fast page load speeds",
       "Form integration & lead alerts",
       "Vercel deployment & domain link",
@@ -34,7 +32,7 @@ const pricingTiers = [
     ],
     cta: "Automate My Workflows",
     popular: true,
-    color: "border-cyan-500/50 bg-cyan-500/5",
+    color: "border-[#00FF66]/50 bg-[#00FF66]/5",
   },
   {
     title: "BOOKING SYSTEMS",
@@ -50,7 +48,7 @@ const pricingTiers = [
     ],
     cta: "Setup Booking System",
     popular: false,
-    color: "border-amber-500/30",
+    color: "border-[#FF0055]/30",
   },
   {
     title: "AI AGENTS & CUSTOM",
@@ -66,17 +64,17 @@ const pricingTiers = [
     ],
     cta: "Request Custom Quote",
     popular: false,
-    color: "border-purple-500/30",
+    color: "border-white/10",
   },
 ];
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-24 bg-[#0B0F19]/90 border-t border-white/10 relative overflow-hidden">
+    <section id="pricing" className="py-24 bg-[#090D16] border-t border-[#FF0055]/20 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono uppercase tracking-widest">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#00FF66]/10 border border-[#00FF66]/30 text-[#00FF66] text-xs font-mono font-bold uppercase tracking-widest">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Transparent Investment</span>
           </div>
@@ -99,10 +97,10 @@ export default function Pricing() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className={`p-6 sm:p-8 rounded-3xl bg-[#030712] border ${tier.color} relative flex flex-col justify-between hover:border-cyan-400 transition-all duration-300 shadow-xl`}
+              className={`p-6 sm:p-8 rounded-3xl bg-[#04060A] border ${tier.color} relative flex flex-col justify-between hover:border-[#00FF66] transition-all duration-300 shadow-xl`}
             >
               {tier.popular && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-mono text-[10px] font-bold tracking-widest uppercase shadow-lg">
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3.5 py-1 rounded-full bg-gradient-to-r from-[#FF0055] to-[#D90368] text-white font-mono text-[10px] font-black tracking-widest uppercase shadow-lg">
                   MOST POPULAR
                 </span>
               )}
@@ -116,7 +114,7 @@ export default function Pricing() {
                 </p>
 
                 <div className="mb-6 pb-6 border-b border-white/10">
-                  <div className="text-xs text-gray-500 font-mono">
+                  <div className="text-xs text-gray-400 font-mono font-bold">
                     {tier.period}
                   </div>
                   <div className="text-4xl font-black font-heading text-white tracking-tight">
@@ -127,7 +125,7 @@ export default function Pricing() {
                 <div className="space-y-3 mb-8">
                   {tier.features.map((feat, i) => (
                     <div key={i} className="flex items-start gap-2 text-xs text-gray-300">
-                      <Check className="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5" />
+                      <Check className="w-3.5 h-3.5 text-[#00FF66] shrink-0 mt-0.5" />
                       <span>{feat}</span>
                     </div>
                   ))}
@@ -136,9 +134,9 @@ export default function Pricing() {
 
               <a
                 href="#contact"
-                className={`w-full py-3 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition-all ${
+                className={`w-full py-3 rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition-all ${
                   tier.popular
-                    ? "bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white shadow-lg shadow-cyan-500/20"
+                    ? "bg-gradient-to-r from-[#FF0055] to-[#D90368] hover:from-[#FF2A6D] hover:to-[#FF0055] text-white shadow-lg shadow-[#FF0055]/30"
                     : "bg-white/10 hover:bg-white/20 text-white border border-white/10"
                 }`}
               >
@@ -151,7 +149,7 @@ export default function Pricing() {
 
         {/* Pricing Disclaimer */}
         <div className="mt-12 text-center max-w-xl mx-auto p-4 rounded-2xl bg-white/[0.02] border border-white/5 text-xs text-gray-400 flex items-center justify-center gap-2">
-          <HelpCircle className="w-4 h-4 text-amber-400 shrink-0" />
+          <HelpCircle className="w-4 h-4 text-[#00FF66] shrink-0" />
           <span>
             <strong>Disclaimer:</strong> Final pricing depends on exact scope, custom API integrations, data volume, and workflow complexity.
           </span>

@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HelpCircle, ChevronDown } from "lucide-react";
@@ -47,11 +45,11 @@ export default function FAQ() {
   };
 
   return (
-    <section className="py-24 relative bg-grid-pattern">
+    <section className="py-24 relative bg-[#04060A]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono uppercase tracking-widest">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#00FF66]/10 border border-[#00FF66]/30 text-[#00FF66] text-xs font-mono font-bold uppercase tracking-widest">
             <HelpCircle className="w-3.5 h-3.5" />
             <span>Got Questions?</span>
           </div>
@@ -72,7 +70,7 @@ export default function FAQ() {
             return (
               <div
                 key={idx}
-                className="rounded-2xl bg-[#0B0F19] border border-white/10 overflow-hidden transition-all duration-200"
+                className="rounded-2xl bg-[#090D16] border border-white/10 overflow-hidden transition-all duration-200"
               >
                 <button
                   onClick={() => toggle(idx)}
@@ -82,7 +80,7 @@ export default function FAQ() {
                     {faq.q}
                   </span>
                   <ChevronDown
-                    className={`w-5 h-5 text-cyan-400 shrink-0 transition-transform duration-300 ${
+                    className={`w-5 h-5 text-[#00FF66] shrink-0 transition-transform duration-300 ${
                       isOpen ? "rotate-180" : ""
                     }`}
                   />

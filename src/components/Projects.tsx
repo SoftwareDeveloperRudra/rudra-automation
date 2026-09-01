@@ -1,8 +1,6 @@
-"use client";
-
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { FolderGit2, ArrowUpRight, CheckCircle2, Sparkles, Layers, Cpu } from "lucide-react";
+import { FolderGit2, ArrowUpRight } from "lucide-react";
 import ProjectModal, { ProjectData } from "./ProjectModal";
 
 const projectsData: ProjectData[] = [
@@ -56,12 +54,12 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<ProjectData | null>(null);
 
   return (
-    <section id="work" className="py-24 relative bg-grid-pattern">
+    <section id="work" className="py-24 relative bg-[#04060A]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono uppercase tracking-widest mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FF0055]/10 border border-[#FF0055]/30 text-[#FF0055] text-xs font-mono uppercase font-bold tracking-widest mb-3">
               <FolderGit2 className="w-3.5 h-3.5" />
               <span>Proven Track Record</span>
             </div>
@@ -83,7 +81,7 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="group relative p-8 rounded-3xl bg-[#0B0F19]/90 border border-white/10 hover:border-cyan-500/40 transition-all duration-300 shadow-2xl flex flex-col justify-between"
+              className="group relative p-8 rounded-3xl bg-[#090D16] border border-white/10 hover:border-[#00FF66]/50 transition-all duration-300 shadow-2xl flex flex-col justify-between"
             >
               <div>
                 {/* Tech Pills */}
@@ -91,7 +89,7 @@ export default function Projects() {
                   {project.tech.map((t, i) => (
                     <span
                       key={i}
-                      className="text-[11px] font-mono font-semibold px-2.5 py-1 rounded-md bg-white/[0.04] border border-white/10 text-cyan-300"
+                      className="text-[11px] font-mono font-bold px-2.5 py-1 rounded-md bg-white/[0.04] border border-white/10 text-[#00FF66]"
                     >
                       {t}
                     </span>
@@ -99,10 +97,10 @@ export default function Projects() {
                 </div>
 
                 {/* Project Header */}
-                <h3 className="text-2xl font-bold font-heading text-white mb-2 group-hover:text-cyan-400 transition-colors">
+                <h3 className="text-2xl font-bold font-heading text-white mb-2 group-hover:text-[#00FF66] transition-colors">
                   {project.name}
                 </h3>
-                <p className="text-xs font-mono text-amber-400 mb-4">
+                <p className="text-xs font-mono text-[#FF0055] font-bold mb-4">
                   {project.subtitle}
                 </p>
 
@@ -113,10 +111,10 @@ export default function Projects() {
                 {/* Quick Problem/Solution Snippet */}
                 <div className="space-y-2 mb-6 p-4 rounded-xl bg-white/[0.02] border border-white/5 text-xs text-gray-400">
                   <div>
-                    <span className="font-semibold text-white">Problem:</span> {project.problem}
+                    <span className="font-bold text-white">Problem:</span> {project.problem}
                   </div>
                   <div>
-                    <span className="font-semibold text-emerald-400">Result:</span> {project.result}
+                    <span className="font-bold text-[#00FF66]">Result:</span> {project.result}
                   </div>
                 </div>
               </div>
@@ -124,7 +122,7 @@ export default function Projects() {
               {/* View Case Study Button */}
               <button
                 onClick={() => setSelectedProject(project)}
-                className="w-full py-3 rounded-xl bg-white/5 hover:bg-cyan-500/10 border border-white/10 hover:border-cyan-500/30 text-white hover:text-cyan-300 text-xs font-semibold tracking-wide flex items-center justify-center gap-2 transition-all group-hover:shadow-lg"
+                className="w-full py-3 rounded-xl bg-white/5 hover:bg-[#FF0055]/10 border border-white/10 hover:border-[#FF0055]/40 text-white hover:text-[#FF0055] text-xs font-bold tracking-wide flex items-center justify-center gap-2 transition-all group-hover:shadow-lg"
               >
                 <span>View Full Case Study</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />

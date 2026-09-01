@@ -55,8 +55,8 @@ Define your environment variables in `.env.local`:
 # n8n Webhook URL for lead processing and audit requests
 NEXT_PUBLIC_N8N_WEBHOOK_URL=https://your-n8n-instance.com/webhook/rudra-leads
 
-# WhatsApp contact phone number (include country code without + sign, e.g. 919876543210 for India)
-NEXT_PUBLIC_WHATSAPP_NUMBER=919876543210
+# WhatsApp contact phone number (include country code without + sign, e.g. 918511092863 for India)
+NEXT_PUBLIC_WHATSAPP_NUMBER=918511092863
 
 # Optional Google Analytics or Vercel Analytics ID
 NEXT_PUBLIC_ANALYTICS_ID=

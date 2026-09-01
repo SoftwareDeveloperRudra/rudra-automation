@@ -1,8 +1,6 @@
-"use client";
-
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Send, CheckCircle2, Loader2, Mail, Phone, MapPin, AlertCircle } from "lucide-react";
+import { Send, CheckCircle2, Loader2, Phone, MapPin, AlertCircle } from "lucide-react";
 import { submitAutomationLead } from "@/lib/n8n";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 
@@ -56,13 +54,13 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="contact" className="py-24 relative bg-grid-pattern">
+    <section id="contact" className="py-24 relative bg-[#04060A]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          {/* Left Column: Direct Contact Details & Brand Info */}
+          {/* Left Column: Direct Contact Details */}
           <div className="lg:col-span-5 space-y-8">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono uppercase tracking-widest mb-3">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FF0055]/10 border border-[#FF0055]/30 text-[#FF0055] text-xs font-mono font-bold uppercase tracking-widest mb-3">
                 <Send className="w-3.5 h-3.5" />
                 <span>Let's Talk</span>
               </div>
@@ -76,27 +74,27 @@ export default function ContactForm() {
 
             {/* Direct Contact Cards */}
             <div className="space-y-4">
-              <div className="p-5 rounded-2xl bg-[#0B0F19] border border-white/10 flex items-center gap-4">
-                <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
+              <div className="p-5 rounded-2xl bg-[#090D16] border border-white/10 flex items-center gap-4">
+                <div className="w-10 h-10 rounded-xl bg-[#FF0055]/10 border border-[#FF0055]/30 flex items-center justify-center text-[#FF0055]">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="text-xs font-mono text-gray-400">LOCATION</div>
+                  <div className="text-xs font-mono font-bold text-gray-400">LOCATION</div>
                   <div className="text-sm font-semibold text-white">Surat, Gujarat, India</div>
                 </div>
               </div>
 
-              <div className="p-5 rounded-2xl bg-[#0B0F19] border border-white/10 flex items-center gap-4">
-                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+              <div className="p-5 rounded-2xl bg-[#090D16] border border-white/10 flex items-center gap-4">
+                <div className="w-10 h-10 rounded-xl bg-[#00FF66]/10 border border-[#00FF66]/30 flex items-center justify-center text-[#00FF66]">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="text-xs font-mono text-gray-400">WHATSAPP DIRECT</div>
+                  <div className="text-xs font-mono font-bold text-gray-400">WHATSAPP DIRECT</div>
                   <a
                     href={getWhatsAppUrl()}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-semibold text-emerald-400 hover:underline"
+                    className="text-sm font-bold text-[#00FF66] hover:underline"
                   >
                     Open WhatsApp Chat
                   </a>
@@ -106,7 +104,7 @@ export default function ContactForm() {
           </div>
 
           {/* Right Column: Contact Form */}
-          <div className="lg:col-span-7 p-8 sm:p-10 rounded-3xl bg-[#0B0F19] border border-white/10 shadow-2xl relative">
+          <div className="lg:col-span-7 p-8 sm:p-10 rounded-3xl bg-[#090D16] border border-white/10 shadow-2xl relative">
             <AnimatePresence mode="wait">
               {submitted ? (
                 <motion.div
@@ -115,7 +113,7 @@ export default function ContactForm() {
                   exit={{ opacity: 0 }}
                   className="py-16 text-center space-y-4"
                 >
-                  <div className="w-16 h-16 rounded-full bg-cyan-500/20 border border-cyan-500/40 text-cyan-400 flex items-center justify-center mx-auto">
+                  <div className="w-16 h-16 rounded-full bg-[#00FF66]/20 border border-[#00FF66]/40 text-[#00FF66] flex items-center justify-center mx-auto">
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
                   <h3 className="text-2xl font-bold text-white font-heading">
@@ -136,7 +134,7 @@ export default function ContactForm() {
                         message: "",
                       });
                     }}
-                    className="text-xs text-cyan-400 underline hover:text-cyan-300 pt-2"
+                    className="text-xs text-[#00FF66] underline hover:text-white pt-2 font-bold"
                   >
                     Send another inquiry
                   </button>
@@ -148,7 +146,7 @@ export default function ContactForm() {
                   </h3>
 
                   {errorMsg && (
-                    <div className="p-3.5 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-xs flex items-center gap-2">
+                    <div className="p-3.5 rounded-xl bg-[#FF0055]/10 border border-[#FF0055]/30 text-[#FF0055] text-xs flex items-center gap-2">
                       <AlertCircle className="w-4 h-4 shrink-0" />
                       <span>{errorMsg}</span>
                     </div>
@@ -156,7 +154,7 @@ export default function ContactForm() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
+                      <label className="block text-xs font-mono font-bold text-gray-300 uppercase tracking-wider mb-2">
                         Your Name *
                       </label>
                       <input
@@ -164,13 +162,13 @@ export default function ContactForm() {
                         placeholder="John Doe"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-500 transition-colors"
+                        className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#00FF66] transition-colors"
                         required
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
+                      <label className="block text-xs font-mono font-bold text-gray-300 uppercase tracking-wider mb-2">
                         Email Address *
                       </label>
                       <input
@@ -178,7 +176,7 @@ export default function ContactForm() {
                         placeholder="john@example.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-500 transition-colors"
+                        className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#00FF66] transition-colors"
                         required
                       />
                     </div>
@@ -186,7 +184,7 @@ export default function ContactForm() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
+                      <label className="block text-xs font-mono font-bold text-gray-300 uppercase tracking-wider mb-2">
                         Phone / WhatsApp
                       </label>
                       <input
@@ -194,12 +192,12 @@ export default function ContactForm() {
                         placeholder="+91 98765 43210"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-500 transition-colors"
+                        className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#00FF66] transition-colors"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
+                      <label className="block text-xs font-mono font-bold text-gray-300 uppercase tracking-wider mb-2">
                         Business Name
                       </label>
                       <input
@@ -207,19 +205,19 @@ export default function ContactForm() {
                         placeholder="Company / Institute Name"
                         value={formData.businessName}
                         onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
-                        className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-500 transition-colors"
+                        className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#00FF66] transition-colors"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
+                    <label className="block text-xs font-mono font-bold text-gray-300 uppercase tracking-wider mb-2">
                       Service Required *
                     </label>
                     <select
                       value={formData.serviceRequired}
                       onChange={(e) => setFormData({ ...formData, serviceRequired: e.target.value })}
-                      className="w-full bg-[#111827] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-500 transition-colors"
+                      className="w-full bg-[#0E1422] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#00FF66] transition-colors"
                     >
                       <option value="Website">Business Website</option>
                       <option value="AI Automation">AI Automation Workflow</option>
@@ -231,7 +229,7 @@ export default function ContactForm() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
+                    <label className="block text-xs font-mono font-bold text-gray-300 uppercase tracking-wider mb-2">
                       Project Details / Message *
                     </label>
                     <textarea
@@ -239,7 +237,7 @@ export default function ContactForm() {
                       placeholder="Describe your project goals, existing tools, and desired launch timeline..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-500 transition-colors resize-none"
+                      className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#00FF66] transition-colors resize-none"
                       required
                     />
                   </div>
@@ -247,7 +245,7 @@ export default function ContactForm() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-extrabold text-sm shadow-xl shadow-cyan-500/25 flex items-center justify-center gap-2 transition-all disabled:opacity-50"
+                    className="w-full py-4 rounded-xl bg-gradient-to-r from-[#FF0055] to-[#D90368] hover:from-[#FF2A6D] hover:to-[#FF0055] text-white font-black text-sm shadow-xl shadow-[#FF0055]/30 flex items-center justify-center gap-2 transition-all disabled:opacity-50"
                   >
                     {loading ? (
                       <>

@@ -1,5 +1,3 @@
-"use client";
-
 import { MapPin, ArrowUp, Mail } from "lucide-react";
 
 export default function Footer() {
@@ -8,22 +6,22 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#030712] border-t border-white/10 pt-16 pb-12 text-gray-400 text-sm">
+    <footer className="bg-[#04060A] border-t border-[#FF0055]/20 pt-16 pb-12 text-gray-400 text-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10">
           {/* Brand Column */}
           <div className="md:col-span-5 space-y-4">
             <a
               href="#"
-              className="text-2xl font-extrabold tracking-tighter text-white font-heading inline-block"
+              className="text-2xl font-black tracking-tighter text-white font-heading inline-block"
             >
-              RUDRA<span className="text-cyan-400">.</span>
+              RUDRA<span className="text-[#00FF66]">.</span>
             </a>
             <p className="text-xs text-gray-400 max-w-sm leading-relaxed">
               Full Stack Developer & AI Automation Engineer. Designing high-performance web platforms and n8n workflow systems for growing businesses.
             </p>
-            <div className="flex items-center gap-2 text-xs text-gray-400">
-              <MapPin className="w-3.5 h-3.5 text-cyan-400" />
+            <div className="flex items-center gap-2 text-xs text-gray-400 font-mono">
+              <MapPin className="w-3.5 h-3.5 text-[#00FF66]" />
               <span>Surat, Gujarat, India • Global Availability</span>
             </div>
           </div>
@@ -35,32 +33,32 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <a href="#work" className="hover:text-cyan-400 transition-colors">
+                <a href="#work" className="hover:text-[#00FF66] transition-colors">
                   Featured Work
                 </a>
               </li>
               <li>
-                <a href="#services" className="hover:text-cyan-400 transition-colors">
+                <a href="#services" className="hover:text-[#00FF66] transition-colors">
                   Services
                 </a>
               </li>
               <li>
-                <a href="#automation" className="hover:text-cyan-400 transition-colors">
+                <a href="#automation" className="hover:text-[#00FF66] transition-colors">
                   AI Automations
                 </a>
               </li>
               <li>
-                <a href="#audit" className="hover:text-amber-400 transition-colors">
+                <a href="#audit" className="hover:text-[#FF0055] transition-colors">
                   Free Automation Audit
                 </a>
               </li>
               <li>
-                <a href="#pricing" className="hover:text-cyan-400 transition-colors">
+                <a href="#pricing" className="hover:text-[#00FF66] transition-colors">
                   Pricing
                 </a>
               </li>
               <li>
-                <a href="#contact" className="hover:text-cyan-400 transition-colors">
+                <a href="#contact" className="hover:text-[#00FF66] transition-colors">
                   Start a Project
                 </a>
               </li>
@@ -75,10 +73,10 @@ export default function Footer() {
             <div className="flex items-center gap-3">
               {/* GitHub */}
               <a
-                href="https://github.com"
+                href="https://github.com/SoftwareDeveloperRudra"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 hover:border-cyan-400 flex items-center justify-center text-gray-300 hover:text-white transition-all"
+                className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 hover:border-[#00FF66] flex items-center justify-center text-gray-300 hover:text-[#00FF66] transition-all"
                 aria-label="GitHub Profile"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -91,7 +89,7 @@ export default function Footer() {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 hover:border-cyan-400 flex items-center justify-center text-gray-300 hover:text-white transition-all"
+                className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 hover:border-[#00FF66] flex items-center justify-center text-gray-300 hover:text-[#00FF66] transition-all"
                 aria-label="LinkedIn Profile"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -104,7 +102,7 @@ export default function Footer() {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 hover:border-cyan-400 flex items-center justify-center text-gray-300 hover:text-white transition-all"
+                className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 hover:border-[#00FF66] flex items-center justify-center text-gray-300 hover:text-[#00FF66] transition-all"
                 aria-label="X Twitter Profile"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -115,7 +113,7 @@ export default function Footer() {
               {/* Mail */}
               <a
                 href="#contact"
-                className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 hover:border-cyan-400 flex items-center justify-center text-gray-300 hover:text-white transition-all"
+                className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 hover:border-[#00FF66] flex items-center justify-center text-gray-300 hover:text-[#00FF66] transition-all"
                 aria-label="Email Contact"
               >
                 <Mail className="w-4 h-4" />
@@ -125,15 +123,15 @@ export default function Footer() {
         </div>
 
         {/* Copyright & Scroll to top */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono">
           <div>© 2026 Rudra Umra. All rights reserved.</div>
 
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors"
+            className="flex items-center gap-2 text-gray-400 hover:text-[#00FF66] transition-colors"
           >
             <span>Back to top</span>
-            <ArrowUp className="w-3.5 h-3.5" />
+            <ArrowUp className="w-3.5 h-3.5 text-[#FF0055]" />
           </button>
         </div>
       </div>
