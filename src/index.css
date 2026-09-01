@@ -4,47 +4,47 @@
 
 @layer base {
   :root {
-    --background: 4 6% 4%;
-    --foreground: 120 100% 98%;
+    --background: 220 30% 5%;
+    --foreground: 210 40% 98%;
   }
 
   body {
-    background-color: #04060A;
-    color: #F9FAFB;
+    background-color: #070A11;
+    color: #F3F4F6;
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     overflow-x: hidden;
     scroll-behavior: smooth;
   }
 }
 
-/* Custom Scrollbar in Cyber Neon */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #04060A;
+  background: #070A11;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #FF0055;
+  background: #1E293B;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #00FF66;
+  background: #00E676;
 }
 
-/* Glassmorphism utilities with Cyber accent borders */
+/* Glassmorphism utilities */
 .glass-panel {
-  background: rgba(10, 14, 23, 0.85);
+  background: rgba(13, 19, 31, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 0, 85, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .glass-card {
-  background: rgba(10, 14, 23, 0.6);
+  background: rgba(13, 19, 31, 0.6);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -52,35 +52,26 @@
 }
 
 .glass-card:hover {
-  border-color: rgba(0, 255, 102, 0.4);
-  background: rgba(16, 22, 37, 0.8);
-  box-shadow: 0 10px 30px -10px rgba(0, 255, 102, 0.25);
+  border-color: rgba(0, 230, 118, 0.4);
+  background: rgba(19, 28, 46, 0.8);
+  box-shadow: 0 20px 40px -15px rgba(0, 230, 118, 0.2);
 }
 
-/* Cyber Text Gradients */
-.text-gradient-red {
-  background: linear-gradient(135deg, #FFFFFF 0%, #FF2A6D 50%, #FF0055 100%);
+/* Text Gradients inspired by Ref 2 & 3 */
+.text-gradient-emerald {
+  background: linear-gradient(135deg, #FFFFFF 0%, #00E676 60%, #10B981 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.text-gradient-green {
-  background: linear-gradient(135deg, #FFFFFF 0%, #39FF14 50%, #00FF66 100%);
+.text-gradient-blue {
+  background: linear-gradient(135deg, #FFFFFF 0%, #60A5FA 60%, #3B82F6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.text-gradient-cyber {
-  background: linear-gradient(135deg, #FF0055 0%, #FFFFFF 50%, #00FF66 100%);
+.text-gradient-white {
+  background: linear-gradient(180deg, #FFFFFF 0%, #CBD5E1 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-/* Neon Glows */
-.glow-neon-red {
-  box-shadow: 0 0 25px rgba(255, 0, 85, 0.4);
-}
-
-.glow-neon-green {
-  box-shadow: 0 0 25px rgba(0, 255, 102, 0.4);
 }

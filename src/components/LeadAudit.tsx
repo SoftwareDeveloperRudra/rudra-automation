@@ -53,14 +53,14 @@ export default function LeadAudit() {
   };
 
   return (
-    <section id="audit" className="py-24 relative overflow-hidden bg-[#04060A]">
+    <section id="audit" className="py-24 relative overflow-hidden bg-[#070A11]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="p-8 sm:p-12 rounded-3xl bg-[#090D16]/90 border border-[#00FF66]/30 shadow-2xl backdrop-blur-2xl relative">
-          <div className="absolute -top-24 -right-24 w-72 h-72 bg-[#00FF66]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="p-8 sm:p-12 rounded-3xl bg-[#0D131F]/95 border border-[#00E676]/30 shadow-2xl backdrop-blur-2xl relative">
+          <div className="absolute -top-24 -right-24 w-72 h-72 bg-[#00E676]/10 rounded-full blur-3xl pointer-events-none" />
 
           {/* Section Heading */}
           <div className="text-center space-y-4 mb-10">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#00FF66]/10 border border-[#00FF66]/30 text-[#00FF66] text-xs font-mono font-bold uppercase tracking-widest">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#00E676]/10 border border-[#00E676]/30 text-[#00E676] text-xs font-mono font-bold uppercase tracking-widest">
               <Sparkles className="w-4 h-4" />
               <span>Complimentary Business Analysis</span>
             </div>
@@ -82,7 +82,7 @@ export default function LeadAudit() {
                 exit={{ opacity: 0 }}
                 className="py-12 text-center space-y-4"
               >
-                <div className="w-16 h-16 rounded-full bg-[#00FF66]/20 border border-[#00FF66]/40 text-[#00FF66] flex items-center justify-center mx-auto">
+                <div className="w-16 h-16 rounded-full bg-[#00E676]/20 border border-[#00E676]/40 text-[#00E676] flex items-center justify-center mx-auto">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
                 <h3 className="text-2xl font-bold text-white font-heading">
@@ -103,7 +103,7 @@ export default function LeadAudit() {
                       problem: "",
                     });
                   }}
-                  className="text-xs text-[#00FF66] underline hover:text-white pt-2 font-bold"
+                  className="text-xs text-[#00E676] underline hover:text-white pt-2 font-bold"
                 >
                   Submit another audit request
                 </button>
@@ -111,7 +111,7 @@ export default function LeadAudit() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 {errorMsg && (
-                  <div className="p-3.5 rounded-xl bg-[#FF0055]/10 border border-[#FF0055]/30 text-[#FF0055] text-xs flex items-center gap-2">
+                  <div className="p-3.5 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-xs flex items-center gap-2">
                     <AlertCircle className="w-4 h-4 shrink-0" />
                     <span>{errorMsg}</span>
                   </div>
@@ -127,7 +127,7 @@ export default function LeadAudit() {
                       placeholder="e.g. Rahul Sharma"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#00FF66] transition-colors"
+                      className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#00E676] transition-colors"
                       required
                     />
                   </div>
@@ -141,7 +141,7 @@ export default function LeadAudit() {
                       placeholder="e.g. Apex Coaching Academy"
                       value={formData.businessName}
                       onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
-                      className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#00FF66] transition-colors"
+                      className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#00E676] transition-colors"
                     />
                   </div>
                 </div>
@@ -154,7 +154,7 @@ export default function LeadAudit() {
                     <select
                       value={formData.businessType}
                       onChange={(e) => setFormData({ ...formData, businessType: e.target.value })}
-                      className="w-full bg-[#0E1422] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#00FF66] transition-colors"
+                      className="w-full bg-[#131C2E] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#00E676] transition-colors"
                     >
                       <option value="Coaching Institute">Coaching Institute</option>
                       <option value="Clinic / Healthcare">Clinic / Healthcare</option>
@@ -177,7 +177,7 @@ export default function LeadAudit() {
                       placeholder="rahul@example.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#00FF66] transition-colors"
+                      className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#00E676] transition-colors"
                       required
                     />
                   </div>
@@ -191,7 +191,7 @@ export default function LeadAudit() {
                       placeholder="+91 98765 43210"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#00FF66] transition-colors"
+                      className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#00E676] transition-colors"
                     />
                   </div>
                 </div>
@@ -205,21 +205,21 @@ export default function LeadAudit() {
                     placeholder="e.g. I currently receive customer inquiries on WhatsApp and manually follow up, leading to forgotten leads and lost sales."
                     value={formData.problem}
                     onChange={(e) => setFormData({ ...formData, problem: e.target.value })}
-                    className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#00FF66] transition-colors resize-none"
+                    className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#00E676] transition-colors resize-none"
                     required
                   />
                 </div>
 
                 <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
                   <div className="flex items-center gap-2 text-xs text-gray-400">
-                    <ShieldCheck className="w-4 h-4 text-[#00FF66] shrink-0" />
+                    <ShieldCheck className="w-4 h-4 text-[#00E676] shrink-0" />
                     <span>No spam. 100% confidential business review.</span>
                   </div>
 
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full sm:w-auto bg-[#00FF66] hover:bg-[#39FF14] text-black font-black text-sm px-8 py-3.5 rounded-xl shadow-lg shadow-[#00FF66]/30 flex items-center justify-center gap-2 transition-all disabled:opacity-50"
+                    className="w-full sm:w-auto bg-[#00E676] hover:bg-[#00C853] text-black font-extrabold text-sm px-8 py-3.5 rounded-xl shadow-lg shadow-[#00E676]/25 flex items-center justify-center gap-2 transition-all disabled:opacity-50"
                   >
                     {loading ? (
                       <>

@@ -7,45 +7,41 @@ const valueStats = [
     value: "10-20 Hrs",
     label: "Saved Every Week",
     sub: "By automating manual lead entry & follow-up messages.",
-    color: "text-[#FF0055] border-[#FF0055]/30 bg-[#FF0055]/10",
   },
   {
     icon: Zap,
     value: "< 30 Sec",
     label: "Lead Response Time",
     sub: "Instant AI qualification & WhatsApp notifications.",
-    color: "text-[#00FF66] border-[#00FF66]/30 bg-[#00FF66]/10",
   },
   {
     icon: Layers,
     value: "100%",
     label: "Custom Workflows",
     sub: "Tailored specifically for your existing business tools.",
-    color: "text-[#FF0055] border-[#FF0055]/30 bg-[#FF0055]/10",
   },
   {
     icon: BarChart3,
     value: "0 Missed",
     label: "Inquiries & Appointments",
     sub: "Automated booking & Google Calendar sync.",
-    color: "text-[#00FF66] border-[#00FF66]/30 bg-[#00FF66]/10",
   },
 ];
 
 export default function TrustPositioning() {
   return (
-    <section id="trust" className="py-24 relative overflow-hidden bg-[#04060A]">
+    <section id="trust" className="py-24 relative overflow-hidden bg-[#070A11]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#00FF66]/10 border border-[#00FF66]/30 text-[#00FF66] text-xs font-mono font-bold uppercase tracking-widest">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#00E676]/10 border border-[#00E676]/30 text-[#00E676] text-xs font-mono font-bold uppercase tracking-widest">
             <ShieldCheck className="w-4 h-4" />
             <span>Positioning & Philosophy</span>
           </div>
 
           <h2 className="text-3xl sm:text-5xl font-black font-heading text-white tracking-tight">
             Don't Just Build A Website. <br />
-            <span className="text-gradient-red">Build A System That Works.</span>
+            <span className="text-gradient-emerald">Build A System That Works.</span>
           </h2>
 
           <p className="text-lg text-gray-300">
@@ -64,9 +60,9 @@ export default function TrustPositioning() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="p-6 rounded-2xl bg-[#090D16] border border-white/10 hover:border-[#00FF66]/40 hover:bg-[#0E1422] transition-all duration-300 relative group"
+                className="p-6 rounded-2xl bg-[#0D131F] border border-white/10 hover:border-[#00E676]/40 transition-all duration-300 relative group"
               >
-                <div className={`w-10 h-10 rounded-xl border flex items-center justify-center mb-4 group-hover:scale-110 transition-transform ${stat.color}`}>
+                <div className="w-10 h-10 rounded-xl border border-[#00E676]/30 bg-[#00E676]/10 flex items-center justify-center text-[#00E676] mb-4 group-hover:scale-110 transition-transform">
                   <Icon className="w-5 h-5" />
                 </div>
                 <div className="text-3xl font-black font-heading text-white mb-1">
@@ -84,7 +80,7 @@ export default function TrustPositioning() {
         </div>
 
         {/* Who I Help Bar */}
-        <div className="mt-16 p-8 rounded-3xl bg-gradient-to-r from-[#090D16] via-[#101625] to-[#090D16] border border-[#FF0055]/30 shadow-2xl">
+        <div className="mt-16 p-8 rounded-3xl bg-gradient-to-r from-[#0D131F] via-[#131C2E] to-[#0D131F] border border-white/15 shadow-2xl">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
               <h3 className="text-xl font-bold font-heading text-white mb-2">
@@ -96,9 +92,9 @@ export default function TrustPositioning() {
             </div>
             <a
               href="#audit"
-              className="shrink-0 bg-[#00FF66]/10 hover:bg-[#00FF66]/20 text-[#00FF66] font-bold text-xs px-6 py-3 rounded.xl border border-[#00FF66]/40 transition-all flex items-center gap-2"
+              className="shrink-0 bg-[#00E676]/10 hover:bg-[#00E676]/20 text-[#00E676] font-bold text-xs px-6 py-3 rounded-xl border border-[#00E676]/40 transition-all flex items-center gap-2"
             >
-              <CheckCircle2 className="w-4 h-4 text-[#00FF66]" />
+              <CheckCircle2 className="w-4 h-4 text-[#00E676]" />
               <span>See What You Can Automate</span>
             </a>
           </div>

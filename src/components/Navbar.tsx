@@ -32,7 +32,7 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-[#04060A]/90 backdrop-blur-xl border-b border-[#FF0055]/30 py-3 shadow-2xl shadow-[#FF0055]/10"
+          ? "bg-[#070A11]/90 backdrop-blur-xl border-b border-white/10 py-3.5 shadow-2xl"
           : "bg-transparent py-5"
       }`}
     >
@@ -43,7 +43,7 @@ export default function Navbar() {
           className="group flex items-center gap-2 text-2xl font-black tracking-tighter text-white font-heading"
         >
           <span>RUDRA</span>
-          <span className="text-[#00FF66] group-hover:rotate-12 transition-transform duration-300 shadow-[#00FF66]">
+          <span className="text-[#00E676] group-hover:rotate-12 transition-transform duration-300">
             .
           </span>
         </a>
@@ -54,7 +54,7 @@ export default function Navbar() {
             <a
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-gray-300 hover:text-[#00FF66] px-3.5 py-1.5 rounded-full hover:bg-white/5 transition-all duration-200"
+              className="text-sm font-medium text-gray-300 hover:text-[#00E676] px-3.5 py-1.5 rounded-full hover:bg-white/5 transition-all duration-200"
             >
               {link.name}
             </a>
@@ -67,15 +67,15 @@ export default function Navbar() {
             href={getWhatsAppUrl("Hi Rudra, I'd like to get a free automation audit for my business.")}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs font-semibold text-[#00FF66] hover:text-white px-3.5 py-2 flex items-center gap-1.5 bg-[#00FF66]/10 border border-[#00FF66]/30 rounded-full transition-all duration-200 hover:border-[#00FF66]"
+            className="text-xs font-semibold text-[#00E676] hover:text-white px-3.5 py-2 flex items-center gap-1.5 bg-[#00E676]/10 border border-[#00E676]/30 rounded-full transition-all duration-200 hover:border-[#00E676]"
           >
-            <Sparkles className="w-3.5 h-3.5 text-[#00FF66]" />
+            <Sparkles className="w-3.5 h-3.5 text-[#00E676]" />
             <span>Free Audit</span>
           </a>
 
           <a
             href="#contact"
-            className="group relative inline-flex items-center gap-2 bg-gradient-to-r from-[#FF0055] to-[#D90368] hover:from-[#FF2A6D] hover:to-[#FF0055] text-white text-sm font-bold px-5 py-2.5 rounded-full shadow-lg shadow-[#FF0055]/30 hover:shadow-[#FF0055]/50 transition-all duration-200"
+            className="group relative inline-flex items-center gap-2 bg-[#00E676] hover:bg-[#00C853] text-black text-sm font-extrabold px-5 py-2.5 rounded-full shadow-lg shadow-[#00E676]/25 transition-all duration-200"
           >
             <span>Start a Project</span>
             <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -85,7 +85,7 @@ export default function Navbar() {
         {/* Mobile Hamburger Toggle */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden text-gray-300 hover:text-[#00FF66] p-2 rounded-lg bg-white/5 border border-white/10 focus:outline-none"
+          className="md:hidden text-gray-300 hover:text-[#00E676] p-2 rounded-lg bg-white/5 border border-white/10 focus:outline-none"
           aria-label="Toggle Navigation Menu"
         >
           {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -100,7 +100,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden bg-[#090D16]/98 border-b border-[#FF0055]/30 backdrop-blur-2xl overflow-hidden"
+            className="md:hidden bg-[#0D131F]/98 border-b border-white/10 backdrop-blur-2xl overflow-hidden"
           >
             <div className="px-5 py-6 space-y-4">
               <nav className="flex flex-col space-y-2">
@@ -109,7 +109,7 @@ export default function Navbar() {
                     key={link.name}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="text-base font-medium text-gray-300 hover:text-[#00FF66] py-2 border-b border-white/5 transition-colors"
+                    className="text-base font-medium text-gray-300 hover:text-[#00E676] py-2 border-b border-white/5 transition-colors"
                   >
                     {link.name}
                   </a>
@@ -120,7 +120,7 @@ export default function Navbar() {
                 <a
                   href="#audit"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="w-full text-center text-sm font-semibold text-[#00FF66] bg-[#00FF66]/10 border border-[#00FF66]/30 py-3 rounded-xl flex items-center justify-center gap-2"
+                  className="w-full text-center text-sm font-semibold text-[#00E676] bg-[#00E676]/10 border border-[#00E676]/30 py-3 rounded-xl flex items-center justify-center gap-2"
                 >
                   <Sparkles className="w-4 h-4" />
                   <span>Get Free Automation Audit</span>
@@ -129,7 +129,7 @@ export default function Navbar() {
                 <a
                   href="#contact"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="w-full text-center text-sm font-bold text-white bg-gradient-to-r from-[#FF0055] to-[#D90368] py-3 rounded-xl shadow-lg flex items-center justify-center gap-2"
+                  className="w-full text-center text-sm font-extrabold text-black bg-[#00E676] py-3 rounded-xl shadow-lg flex items-center justify-center gap-2"
                 >
                   <span>Start a Project</span>
                   <ArrowUpRight className="w-4 h-4" />

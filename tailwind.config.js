@@ -8,18 +8,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "#04060A",
-        card: "#0A0E17",
-        "card-hover": "#101625",
-        border: "rgba(255, 0, 85, 0.15)",
-        "border-hover": "rgba(0, 255, 102, 0.3)",
-        cyber: {
-          red: "#FF0055",
-          "red-bright": "#FF2A6D",
-          green: "#00FF66",
-          "green-bright": "#39FF14",
-          dark: "#04060A",
-          card: "#090D16",
+        background: "#070A11",
+        card: "#0D131F",
+        "card-hover": "#131C2E",
+        border: "rgba(255, 255, 255, 0.08)",
+        brand: {
+          green: "#00E676",
+          "green-hover": "#00C853",
+          emerald: "#10B981",
+          blue: "#3B82F6",
+          cyan: "#06B6D4",
+          dark: "#070A11",
+          card: "#0D131F",
         },
       },
       fontFamily: {
@@ -27,9 +27,9 @@ export default {
         heading: ["Outfit", "sans-serif"],
       },
       boxShadow: {
-        "neon-red": "0 0 25px rgba(255, 0, 85, 0.4)",
-        "neon-green": "0 0 25px rgba(0, 255, 102, 0.4)",
-        "neon-dual": "0 0 30px rgba(255, 0, 85, 0.3), 0 0 30px rgba(0, 255, 102, 0.3)",
+        "emerald-glow": "0 10px 40px -10px rgba(0, 230, 118, 0.3)",
+        "blue-glow": "0 10px 40px -10px rgba(59, 130, 246, 0.3)",
+        "card-glow": "0 20px 50px -15px rgba(0, 0, 0, 0.7)",
       },
     },
   },

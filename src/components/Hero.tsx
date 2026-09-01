@@ -10,63 +10,63 @@ import {
   CheckCircle2,
   Cpu,
   User,
+  ShieldCheck,
 } from "lucide-react";
 
 const workflowNodes = [
-  { icon: MessageSquare, label: "Business Inquiry", sub: "WhatsApp / Web Form", color: "text-[#00FF66]", bg: "border-[#00FF66]/30 bg-[#00FF66]/10" },
-  { icon: Bot, label: "AI Qualification", sub: "Gemini / LLM Engine", color: "text-[#FF0055]", bg: "border-[#FF0055]/30 bg-[#FF0055]/10" },
-  { icon: Zap, label: "n8n Workflow", sub: "Logic & Webhooks", color: "text-[#00FF66]", bg: "border-[#00FF66]/30 bg-[#00FF66]/10" },
-  { icon: Calendar, label: "Instant Booking", sub: "Google Calendar Sync", color: "text-[#FF0055]", bg: "border-[#FF0055]/30 bg-[#FF0055]/10" },
-  { icon: CheckCircle2, label: "Customer Onboarded", sub: "Automated Notify", color: "text-[#00FF66]", bg: "border-[#00FF66]/30 bg-[#00FF66]/10" },
+  { icon: MessageSquare, label: "Business Inquiry", sub: "WhatsApp / Web Form", color: "text-[#00E676]", bg: "border-[#00E676]/30 bg-[#00E676]/10" },
+  { icon: Bot, label: "AI Qualification", sub: "Gemini / LLM Engine", color: "text-[#60A5FA]", bg: "border-[#60A5FA]/30 bg-[#60A5FA]/10" },
+  { icon: Zap, label: "n8n Workflow", sub: "Logic & Webhooks", color: "text-[#00E676]", bg: "border-[#00E676]/30 bg-[#00E676]/10" },
+  { icon: Calendar, label: "Instant Booking", sub: "Google Calendar Sync", color: "text-[#60A5FA]", bg: "border-[#60A5FA]/30 bg-[#60A5FA]/10" },
+  { icon: CheckCircle2, label: "Customer Onboarded", sub: "Automated Notify", color: "text-[#00E676]", bg: "border-[#00E676]/30 bg-[#00E676]/10" },
 ];
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen pt-32 pb-20 flex flex-col justify-center overflow-hidden bg-[#04060A]">
-      {/* Ambient background glows - Cyber Neon Red & Green */}
-      <div className="absolute top-1/4 left-10 w-[500px] h-[500px] bg-[#FF0055]/15 rounded-full blur-[160px] pointer-events-none" />
-      <div className="absolute top-1/3 right-10 w-[500px] h-[500px] bg-[#00FF66]/15 rounded-full blur-[160px] pointer-events-none" />
+    <section className="relative min-h-screen pt-32 pb-20 flex flex-col justify-center overflow-hidden bg-[#070A11]">
+      {/* Background Glow Accents */}
+      <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-[#00E676]/10 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/3 right-10 w-[500px] h-[500px] bg-[#3B82F6]/10 rounded-full blur-[160px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-12">
-          {/* Left Column: Headlines & CTAs */}
-          <div className="lg:col-span-8 space-y-6">
-            {/* Location Badge */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
+          {/* Left Column: Copy & CTAs */}
+          <div className="lg:col-span-7 space-y-6">
+            {/* Tagline Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.04] border border-[#FF0055]/30 backdrop-blur-md"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.04] border border-[#00E676]/30 backdrop-blur-md"
             >
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00FF66] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00FF66]"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00E676] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00E676]"></span>
               </span>
-              <MapPin className="w-3.5 h-3.5 text-[#00FF66]" />
-              <span className="text-xs font-semibold tracking-wide text-gray-300">
-                Based in Surat, Gujarat • Working Worldwide
+              <span className="text-xs font-mono font-bold tracking-wider text-gray-200 uppercase">
+                Full-Stack Developer & AI Automation Engineer
               </span>
             </motion.div>
 
-            {/* Main Cyber Headline */}
+            {/* Main Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight font-heading leading-none"
+              className="text-5xl sm:text-7xl font-black tracking-tight font-heading leading-[1.08] text-white"
             >
-              BUILD<span className="text-[#FF0055]">.</span> AUTOMATE
-              <span className="text-[#00FF66]">.</span> SCALE
-              <span className="text-[#FF0055]">.</span>
+              BUILD<span className="text-[#00E676]">.</span> AUTOMATE
+              <span className="text-[#60A5FA]">.</span> <br className="hidden sm:inline" />
+              <span className="text-gradient-emerald">SCALE.</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg sm:text-2xl text-gray-300 font-normal leading-relaxed max-w-3xl"
+              className="text-lg sm:text-xl text-gray-300 font-normal leading-relaxed max-w-2xl"
             >
-              Full-stack systems and AI automations that turn repetitive business processes into simple, scalable workflows.
+              Full-stack web applications and AI automations that turn repetitive business processes into simple, scalable 24/7 digital workflows.
             </motion.p>
 
             {/* CTA Button Group */}
@@ -74,11 +74,11 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="pt-4 flex flex-wrap items-center gap-4"
+              className="pt-2 flex flex-wrap items-center gap-4"
             >
               <a
                 href="#contact"
-                className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-[#FF0055] via-[#FF2A6D] to-[#D90368] hover:from-[#FF2A6D] hover:to-[#FF0055] text-white font-black text-base px-8 py-4 rounded-2xl shadow-xl shadow-[#FF0055]/30 hover:shadow-[#FF0055]/50 transition-all duration-300"
+                className="group relative inline-flex items-center gap-3 bg-[#00E676] hover:bg-[#00C853] text-black font-extrabold text-base px-8 py-4 rounded-2xl shadow-xl shadow-[#00E676]/25 transition-all duration-300"
               >
                 <span>Let's Automate Your Business</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -86,70 +86,91 @@ export default function Hero() {
 
               <a
                 href="#audit"
-                className="group inline-flex items-center gap-2.5 bg-[#00FF66]/10 hover:bg-[#00FF66]/20 text-[#00FF66] hover:text-white border border-[#00FF66]/40 font-bold text-base px-6 py-4 rounded-2xl transition-all duration-300 shadow-lg shadow-[#00FF66]/10"
+                className="group inline-flex items-center gap-2.5 bg-white/5 hover:bg-white/10 text-[#00E676] hover:text-white border border-[#00E676]/40 font-bold text-base px-6 py-4 rounded-2xl transition-all duration-300"
               >
-                <Sparkles className="w-4 h-4 text-[#00FF66]" />
-                <span>Get Free Automation Audit</span>
+                <Sparkles className="w-4 h-4 text-[#00E676]" />
+                <span>Get Free Audit</span>
               </a>
 
               <a
                 href="#work"
-                className="inline-flex items-center gap-2 text-gray-400 hover:text-white font-semibold text-base px-6 py-4 transition-colors"
+                className="inline-flex items-center gap-2 text-gray-400 hover:text-white font-semibold text-base px-5 py-4 transition-colors"
               >
                 <span>Explore My Work</span>
               </a>
             </motion.div>
           </div>
 
-          {/* Right Column: Rudra Cyber Profile Card / Image Frame */}
-          <div className="lg:col-span-4 flex justify-center">
+          {/* Right Column: Hero Profile Showcase (Inspired by Reference Image 2) */}
+          <div className="lg:col-span-5 flex justify-center relative">
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="relative group w-full max-w-sm"
+              className="relative w-full max-w-md"
             >
-              {/* Outer Dual Neon Glow Ring */}
-              <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-[#FF0055] to-[#00FF66] opacity-75 blur-xl group-hover:opacity-100 transition duration-500 animate-pulse" />
+              {/* Organic Curved Emerald Backdrop (Ref Image 2 Inspired) */}
+              <div className="absolute -inset-2 rounded-[2.5rem] bg-gradient-to-br from-[#00E676]/30 via-transparent to-[#3B82F6]/30 blur-2xl pointer-events-none" />
 
-              <div className="relative rounded-3xl bg-[#090D16] border border-white/10 p-6 backdrop-blur-xl flex flex-col items-center text-center">
-                {/* Profile Image Container */}
-                <div className="relative w-44 h-44 mb-5 rounded-2xl overflow-hidden border-2 border-[#00FF66] shadow-2xl shadow-[#00FF66]/20 group-hover:scale-105 transition-transform duration-300 bg-[#04060A]">
+              {/* Main Card Wrapper */}
+              <div className="relative rounded-[2rem] bg-gradient-to-b from-[#0D131F] to-[#070A11] border border-white/15 p-6 shadow-2xl overflow-hidden">
+                {/* Profile Photo Area */}
+                <div className="relative w-full h-72 sm:h-80 rounded-2xl overflow-hidden bg-[#0D131F] border border-white/10 group flex items-center justify-center">
                   <img
                     src="/rudra.jpg"
                     alt="Rudra Umra"
                     onError={(e) => {
-                      // Fallback if user hasn't added rudra.jpg yet
                       e.currentTarget.style.display = "none";
-                      const fallback = e.currentTarget.parentElement?.querySelector(".avatar-fallback");
+                      const fallback = e.currentTarget.parentElement?.querySelector(".hero-avatar-fallback");
                       if (fallback) (fallback as HTMLElement).style.display = "flex";
                     }}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
 
-                  {/* Fallback Cyber Avatar Icon */}
-                  <div className="avatar-fallback hidden absolute inset-0 bg-gradient-to-br from-[#FF0055]/20 via-[#0A0E17] to-[#00FF66]/20 flex-col items-center justify-center text-white">
-                    <User className="w-16 h-16 text-[#00FF66] mb-1" />
-                    <span className="text-[10px] font-mono text-gray-400">Add rudra.jpg to /public</span>
+                  {/* Fallback Display */}
+                  <div className="hero-avatar-fallback hidden absolute inset-0 bg-gradient-to-b from-[#00E676]/10 to-[#0D131F] flex flex-col items-center justify-center text-center p-6">
+                    <div className="w-20 h-20 rounded-full bg-[#00E676]/15 border border-[#00E676]/40 flex items-center justify-center text-[#00E676] mb-3">
+                      <User className="w-10 h-10" />
+                    </div>
+                    <span className="text-xl font-extrabold text-white font-heading">Rudra Umra</span>
+                    <span className="text-xs text-[#00E676] font-mono mt-1">Surat, Gujarat, India</span>
                   </div>
 
-                  {/* Neon Cyber Tag */}
-                  <span className="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-[#FF0055] text-white text-[9px] font-mono font-bold uppercase tracking-widest shadow-md">
-                    VERIFIED
-                  </span>
+                  {/* Top Right Verified Pill */}
+                  <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-black/60 border border-[#00E676]/40 backdrop-blur-md flex items-center gap-1.5 text-[11px] font-mono text-[#00E676] font-bold">
+                    <ShieldCheck className="w-3.5 h-3.5" />
+                    <span>SYSTEM ARCHITECT</span>
+                  </div>
                 </div>
 
-                <h3 className="text-2xl font-black font-heading text-white tracking-tight">
-                  Rudra Umra
-                </h3>
+                {/* Profile Name & Tagline */}
+                <div className="mt-5 text-center space-y-1">
+                  <h3 className="text-2xl font-extrabold text-white font-heading">
+                    Rudra Umra
+                  </h3>
+                  <p className="text-xs font-mono font-semibold text-[#00E676] uppercase tracking-wider">
+                    Full Stack & AI Automation Architect
+                  </p>
+                </div>
 
-                <p className="text-xs font-mono font-bold text-[#00FF66] uppercase tracking-wider mt-1">
-                  Full Stack & AI Automation Architect
-                </p>
+                {/* Floating Stats Pills (Reference Image 2 Inspired) */}
+                <div className="mt-6 grid grid-cols-2 gap-2.5">
+                  <div className="p-3 rounded-xl bg-white/[0.04] border border-white/10 flex items-center gap-2">
+                    <Zap className="w-4 h-4 text-[#00E676] shrink-0" />
+                    <div className="text-left">
+                      <div className="text-xs font-extrabold text-white">&lt; 30s Response</div>
+                      <div className="text-[10px] text-gray-400">Lead AI Qualified</div>
+                    </div>
+                  </div>
 
-                <p className="text-xs text-gray-400 mt-3 italic border-t border-white/10 pt-3">
-                  "Turning repetitive manual business work into 24/7 automated systems."
-                </p>
+                  <div className="p-3 rounded-xl bg-white/[0.04] border border-white/10 flex items-center gap-2">
+                    <Bot className="w-4 h-4 text-[#60A5FA] shrink-0" />
+                    <div className="text-left">
+                      <div className="text-xs font-extrabold text-white">100% Automated</div>
+                      <div className="text-[10px] text-gray-400">WhatsApp & n8n</div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
@@ -160,16 +181,16 @@ export default function Hero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-8 pt-8 border-t border-[#FF0055]/20"
+          className="mt-4 pt-8 border-t border-white/10"
         >
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
-              <Cpu className="w-4 h-4 text-[#00FF66] animate-pulse" />
+              <Cpu className="w-4 h-4 text-[#00E676] animate-pulse" />
               <span className="text-xs uppercase tracking-widest font-mono font-bold text-gray-300">
                 Automated System Flow Architecture
               </span>
             </div>
-            <span className="text-xs text-[#00FF66] font-mono bg-[#00FF66]/10 border border-[#00FF66]/30 px-3 py-1 rounded-full font-bold">
+            <span className="text-xs text-[#00E676] font-mono bg-[#00E676]/10 border border-[#00E676]/30 px-3 py-1 rounded-full font-bold">
               ● 24/7 ACTIVE PIPELINE
             </span>
           </div>
