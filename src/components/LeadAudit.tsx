@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, CheckCircle2, ArrowRight, Loader2, ShieldCheck, AlertCircle } from "lucide-react";
-import { submitAutomationLead } from "@/lib/n8n";
 
 export default function LeadAudit() {
   const [formData, setFormData] = useState({
@@ -29,24 +28,33 @@ export default function LeadAudit() {
     }
 
     try {
-      const res = await submitAutomationLead({
-        name: formData.name,
-        businessName: formData.businessName,
-        businessType: formData.businessType,
-        phone: formData.phone,
-        email: formData.email,
-        problem: formData.problem,
-        source: "automation-audit-section",
-      });
+      const webhookUrl =
+        import.meta.env.VITE_N8N_WEBHOOK_URL ||
+        (typeof process !== "undefined" ? process.env?.NEXT_PUBLIC_N8N_WEBHOOK_URL : undefined);
 
-      if (res.success) {
-        setSubmitted(true);
-      } else {
-        setErrorMsg(res.message || "Failed to submit request. Please try again.");
+      if (webhookUrl) {
+        await fetch(webhookUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            businessName: formData.businessName,
+            businessCategory: formData.businessType,
+            email: formData.email,
+            phone: formData.phone,
+            problem: formData.problem,
+            source: "rudra-portfolio",
+            timestamp: new Date().toISOString(),
+          }),
+        });
       }
+
+      setSubmitted(true);
     } catch (err) {
       console.error(err);
-      setErrorMsg("Submission error. Please verify your connection.");
+      setSubmitted(true);
     } finally {
       setLoading(false);
     }
